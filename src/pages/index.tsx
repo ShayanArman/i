@@ -1,262 +1,648 @@
-import { Flex, Title, Text, Button, Blockquote } from '@mantine/core';
-import { TishkHeader } from '@/Components/TishkHeader/TishkHeader';
-import { useWordByWordText } from '@/hooks/useWordByWordText';
-import { containerStyle } from '@/styles/styleHelpers';
-import useIsMobile from '@/hooks/useIsMobile';
-import { SlChemistry } from "react-icons/sl";
-import { GiAtom } from 'react-icons/gi';
+import { Flex, Title, Text, Button, Container } from '@mantine/core';
 import { useState } from 'react';
 import Link from "next/link";
 
-
 export default function Main() {
-  const [showAbout, setShowAbout] = useState(false);
-  const [readAbout, setReadAbout] = useState(false);
-
-  const isMobile = useIsMobile();
+  const [activeSection, setActiveSection] = useState<string | null>(null);
 
   return (
-    <Flex direction="column" w={"100%"} align="center" mt={isMobile ? 5 : 15} style={{paddingLeft: isMobile ? undefined : "1rem", paddingRight: isMobile ? undefined : "1rem"}}>
-      <TishkHeader onClick={() => setShowAbout((prev) => { return !prev })} title={"Tishk Shoes"} isMobile={isMobile} isLoading={showAbout} />
-      <Flex direction="column" w={"100%"} align="center" gap={showAbout ? 0 : 15} mt={isMobile ? 20 : 20} p={ isMobile ? undefined : "lg"}>
-        { showAbout === true &&
-          <SummaryWordByWord seenSummary={showAbout} setSeenSummary={setReadAbout} hasReadAbout={readAbout} isMobile={isMobile} />
-        }
-        { !showAbout && 
-          <ProductsBox />
-        }
-        <ShowAboutButton showAbout={showAbout} setShowAbout={setShowAbout} mt={isMobile ? (showAbout ? 3 : 10) : 5 } />
+    <Container size="md" px="md">
+      <Flex direction="column" gap={80} py={60}>
+        {/* Header */}
+        <Flex direction="column" gap={16}>
+          <Title 
+            order={1} 
+            style={{ 
+              fontSize: '48px', 
+              fontWeight: 700,
+              letterSpacing: '-0.02em',
+              color: '#000'
+            }}
+          >
+            Shayan Arman
+          </Title>
+        </Flex>
+
+        {/* Hero Section */}
+        <Flex direction="column" gap={24}>
+          <Text 
+            style={{ 
+              fontSize: '20px', 
+              lineHeight: '1.6',
+              color: '#333',
+              maxWidth: '600px'
+            }}
+          >
+            I love to build, ship, and scale. Since 2017, I've engineered products at Apple and built an AI startup serving thousands worldwide. Currently building Zero Inbox, the first fully AI-powered email organizer.
+          </Text>
+          
+          <Link 
+            href="mailto:shayan.arman2@gmail.com?subject=Project%20Inquiry&body=Hi%20Shayan%2C%0A%0AI%27d%20love%20to%20discuss%20a%20potential%20project.%0A%0APROJECT%20DETAILS%0A%0ACompany%2FProduct%20Name%3A%0A%0AWhat%20are%20you%20building%3F%0A%0ATimeline%20%26%20Budget%3A%0A%0ACurrent%20Stage%3A%0A%0AWhat%20do%20you%20need%20help%20with%3F" 
+            style={{ textDecoration: 'none', width: 'fit-content' }}
+          >
+            <Button
+              styles={{
+                root: {
+                  backgroundColor: '#000',
+                  border: 0,
+                  height: '44px',
+                  paddingLeft: '24px',
+                  paddingRight: '24px',
+                  borderRadius: '8px',
+                  fontSize: '16px',
+                  fontWeight: 500,
+                  '&:hover': {
+                    backgroundColor: '#333',
+                  },
+                },
+              }}
+            >
+              Let's talk
+            </Button>
+          </Link>
+        </Flex>
+
+        {/* Divider */}
+        <div style={{ height: '1px', backgroundColor: '#e5e5e5', width: '100%' }} />
+
+        {/* Results Section */}
+        <Flex direction="column" gap={32}>
+          <Title 
+            order={2} 
+            style={{ 
+              fontSize: '14px', 
+              fontWeight: 600,
+              letterSpacing: '0.05em',
+              color: '#666',
+              textTransform: 'uppercase'
+            }}
+          >
+            Results
+          </Title>
+          
+          <Flex direction="column" gap={24}>
+            <ResultItem 
+              metric="10M+" 
+              description="Emails cleaned and organized by Zero Inbox AI"
+            />
+            <ResultItem 
+              metric="10,000+" 
+              description="Users worldwide across 50+ countries"
+            />
+            <ResultItem 
+              metric="$18B" 
+              description="Revenue unlocked at Apple with first Siri AirPods experience"
+            />
+            <ResultItem 
+              metric="100+" 
+              description="Siri integrations shipped (WhatsApp, Tesla, Spotify, Uber)"
+            />
+          </Flex>
+        </Flex>
+
+        {/* Divider */}
+        <div style={{ height: '1px', backgroundColor: '#e5e5e5', width: '100%' }} />
+
+        {/* Contact Section */}
+        <Flex direction="column" gap={24}>
+          <Title 
+            order={2} 
+            style={{ 
+              fontSize: '14px', 
+              fontWeight: 600,
+              letterSpacing: '0.05em',
+              color: '#666',
+              textTransform: 'uppercase'
+            }}
+          >
+            Contact
+          </Title>
+          
+          <Flex direction="column" gap={12}>
+            <ContactLink href="mailto:shayan.arman2@gmail.com" text="Email" />
+            <ContactLink href="https://linkedin.com/in/shayanarman" text="LinkedIn" />
+            <ContactLink href="https://github.com/ShayanArman" text="GitHub" />
+            <ContactLink href="https://www.youtube.com/@quantumrysics" text="Youtube" />
+            <ContactLink href="https://x.com/InboxZero" text="X" />
+          </Flex>
+        </Flex>
+
+        {/* Divider */}
+        <div style={{ height: '1px', backgroundColor: '#e5e5e5', width: '100%' }} />
+
+        {/* Services Section */}
+        <Flex direction="column" gap={32}>
+          <Title 
+            order={2} 
+            style={{ 
+              fontSize: '14px', 
+              fontWeight: 600,
+              letterSpacing: '0.05em',
+              color: '#666',
+              textTransform: 'uppercase'
+            }}
+          >
+            Skills
+          </Title>
+          
+          <Flex direction="column" gap={32}>
+            <ServiceItem
+              title="AI Integration"
+              description="AI-powered product features and automation. Expert in LLM integration, intelligent data processing, and building AI-first experiences. Built the first fully AI email organizer on the market."
+            />
+            <ServiceItem
+              title="Technical Leadership"
+              description="Strategic technical guidance for startups and teams. Product architecture, engineering best practices, and scaling strategies. Led platform transitions serving millions of users at Apple."
+            />
+            <ServiceItem
+              title="Shipping Product, Getting Customers, Increasing Revenue"
+              description="End-to-end product development from concept to scale. Specializing in Product Development, Sales, Marketing, Growing Revenue. Built systems processing thousands of requests per second."
+            />
+          </Flex>
+        </Flex>
+
+        {/* Divider */}
+        <div style={{ height: '1px', backgroundColor: '#e5e5e5', width: '100%' }} />
+
+        {/* Highlights Section */}
+        <Flex direction="column" gap={32}>
+          <Title 
+            order={2} 
+            style={{ 
+              fontSize: '14px', 
+              fontWeight: 600,
+              letterSpacing: '0.05em',
+              color: '#666',
+              textTransform: 'uppercase'
+            }}
+          >
+            Highlights
+          </Title>
+          
+          <Flex direction="column" gap={28}>
+            <HighlightItem
+              title="Zero Inbox"
+              period="2022—2025"
+              description="First fully AI-powered email organizer. Cleaned 10M+ emails for 10,000 users globally with 1,500 paying customers. Built with Next.js, Python, TypeScript, AWS (SQS, RDS, EC2). Scalable architecture processing thousands of emails per second."
+              url="https://zeroinbox.ai"
+            />
+            <HighlightItem
+              title="Siri Platform Evolution"
+              period="2017—2021"
+              description="Led transition to new Java Siri Platform at Apple, gaining 20% time savings for each developer. Added 100+ new app integrations including WhatsApp, Tesla, Spotify, Uber, and Facebook Messenger."
+            />
+            <HighlightItem
+              title="Privacy-Centric Siri"
+              period="2019—2021"
+              description="Engineered native Swift Siri with single monorepo development. Removed Java server dependency, saving developers hours weekly. Achieved 80% faster on-device response times for customers."
+            />
+            <HighlightItem
+              title="Siri AirPods Experience"
+              period="2019—2020"
+              description="Built the first Siri AirPods experience, unlocking $18B in new revenue for Apple (Bloomberg, 2021). Increased Siri usage by millions across HomePod, AirPods, and CarPlay."
+            />
+          </Flex>
+        </Flex>
+
+        {/* Divider */}
+        <div style={{ height: '1px', backgroundColor: '#e5e5e5', width: '100%' }} />
+
+        {/* Experience Section */}
+        <Flex direction="column" gap={32}>
+          <Title 
+            order={2} 
+            style={{ 
+              fontSize: '14px', 
+              fontWeight: 600,
+              letterSpacing: '0.05em',
+              color: '#666',
+              textTransform: 'uppercase'
+            }}
+          >
+            Experience
+          </Title>
+          
+          <Flex direction="column" gap={24}>
+            <ExperienceItem
+              company="Zero Inbox Technologies"
+              period="2022—2025"
+              role="Lead Engineer, Designer & Founder"
+              type="Full-Time"
+              tags={["Product Design", "Full-Stack Development", "AI/ML", "Fundraising"]}
+            />
+            <ExperienceItem
+              company="Apple"
+              period="2017—2021"
+              role="Software Engineer"
+              type="Full-Time"
+              tags={["iOS Development", "Platform Engineering", "Swift", "Java"]}
+            />
+            <ExperienceItem
+              company="Percolate"
+              period="2015"
+              role="Full Stack Software Engineer"
+              type="Internship"
+              tags={["Flask", "Python", "Testing Infrastructure"]}
+            />
+            <ExperienceItem
+              company="CodeHS"
+              period="2015"
+              role="Full Stack Software Engineer"
+              type="Internship"
+              tags={["Django", "Python", "JavaScript"]}
+            />
+            <ExperienceItem
+              company="Amazon"
+              period="2014"
+              role="Software Engineer"
+              type="Internship"
+              tags={["Java", "AWS SQS", "Backend Systems"]}
+            />
+          </Flex>
+        </Flex>
+
+        {/* Divider */}
+        <div style={{ height: '1px', backgroundColor: '#e5e5e5', width: '100%' }} />
+
+        {/* Education Section */}
+        <Flex direction="column" gap={32}>
+          <Title 
+            order={2} 
+            style={{ 
+              fontSize: '14px', 
+              fontWeight: 600,
+              letterSpacing: '0.05em',
+              color: '#666',
+              textTransform: 'uppercase'
+            }}
+          >
+            Education
+          </Title>
+          
+          <Flex direction="column" gap={24}>
+            <EducationItem
+              school="University of Waterloo"
+              degree="Bachelor of Engineering"
+              period="2011—2016"
+              details="Honors Computer Engineering • GPA: 3.90/4.0 • President's Scholarship of Distinction"
+            />
+            <EducationItem
+              school="Nanyang Technological University"
+              degree="Study Abroad"
+              period="2014"
+              details="Database Design • Singapore"
+            />
+            <EducationItem
+              school="Lund University (LTH)"
+              degree="Study Abroad"
+              period="2014"
+              details="Theoretical Biophysics & Compilers • Sweden"
+            />
+          </Flex>
+        </Flex>
+
+        {/* Divider */}
+        <div style={{ height: '1px', backgroundColor: '#e5e5e5', width: '100%' }} />
+
+        {/* Awards Section */}
+        <Flex direction="column" gap={32}>
+          <Title 
+            order={2} 
+            style={{ 
+              fontSize: '14px', 
+              fontWeight: 600,
+              letterSpacing: '0.05em',
+              color: '#666',
+              textTransform: 'uppercase'
+            }}
+          >
+            Recognition
+          </Title>
+          
+          <Flex direction="column" gap={20}>
+            <AwardItem
+              year="2025"
+              title="Antler Fellow: Toronto Cohort"
+            />
+            <AwardItem
+              year="2024"
+              title="New Ventures BC Top 26"
+            />
+            <AwardItem
+              year="2022"
+              title="YCombinator Selection - Interview Stage"
+            />
+            <AwardItem
+              year="2022"
+              title="IRAP Alberta Machine Intelligence Institute $10k Grant"
+            />
+            <AwardItem
+              year="2022"
+              title="Futurpreneur $60k Grant"
+            />
+            <AwardItem
+              year="2016"
+              title="Waterloo Velocity Fund Finalist"
+            />
+            <AwardItem
+              year="2011"
+              title="President's Scholarship of Distinction"
+            />
+          </Flex>
+        </Flex>
+
+        {/* Divider */}
+        <div style={{ height: '1px', backgroundColor: '#e5e5e5', width: '100%' }} />
+
+        {/* Skills Section */}
+        <Flex direction="column" gap={32}>
+          <Title 
+            order={2} 
+            style={{ 
+              fontSize: '14px', 
+              fontWeight: 600,
+              letterSpacing: '0.05em',
+              color: '#666',
+              textTransform: 'uppercase'
+            }}
+          >
+            Technical Skills
+          </Title>
+          
+          <Flex direction="column" gap={20}>
+            <SkillCategory
+              category="Languages"
+              skills="JavaScript, TypeScript, Python, Swift, Objective-C, Java, C#"
+            />
+            <SkillCategory
+              category="Frontend"
+              skills="React, Next.js, Svelte, HTML/CSS, Mantine"
+            />
+            <SkillCategory
+              category="Backend"
+              skills="Node.js, Express, Flask, Django, tRPC"
+            />
+            <SkillCategory
+              category="Databases"
+              skills="PostgreSQL, MongoDB, SQL, Prisma ORM"
+            />
+            <SkillCategory
+              category="Cloud & DevOps"
+              skills="AWS (EC2, SQS, RDS), Vercel, Linux/Bash"
+            />
+            <SkillCategory
+              category="Mobile"
+              skills="iOS Development, React Native, Electron"
+            />
+          </Flex>
+        </Flex>
+
+        {/* Divider */}
+        <div style={{ height: '1px', backgroundColor: '#e5e5e5', width: '100%' }} />
+
+        {/* Footer */}
+        <Flex direction="column" gap={32}>
+          <Title 
+            order={2} 
+            style={{ 
+              fontSize: '14px', 
+              fontWeight: 600,
+              letterSpacing: '0.05em',
+              color: '#666',
+              textTransform: 'uppercase'
+            }}
+          >
+            Colophon
+          </Title>
+          
+          <Flex direction="column" gap={12}>
+            <Text style={{ fontSize: '16px', color: '#666' }}>
+              Built in Vancouver, BC
+            </Text>
+            <Text style={{ fontSize: '16px', color: '#666' }}>
+              Made with Next.js & Mantine
+            </Text>
+            <Text style={{ fontSize: '16px', color: '#666' }}>
+              Hosted on Vercel
+            </Text>
+          </Flex>
+        </Flex>
+
+        {/* Divider */}
+        <div style={{ height: '1px', backgroundColor: '#e5e5e5', width: '100%' }} />
+
+        {/* Copyright */}
+        <Flex direction="column" gap={12}>
+          <Title 
+            order={2} 
+            style={{ 
+              fontSize: '14px', 
+              fontWeight: 600,
+              letterSpacing: '0.05em',
+              color: '#666',
+              textTransform: 'uppercase'
+            }}
+          >
+            Copyright
+          </Title>
+          
+          <Text style={{ fontSize: '16px', color: '#666' }}>
+            ©2017—2026 shayanarman.com
+          </Text>
+          <Text style={{ fontSize: '16px', color: '#666' }}>
+            All rights reserved
+          </Text>
+        </Flex>
       </Flex>
+    </Container>
+  );
+}
+
+// Component helpers
+function ResultItem({ metric, description }: { metric: string; description: string }) {
+  return (
+    <Flex direction="column" gap={8}>
+      <Text style={{ fontSize: '32px', fontWeight: 700, color: '#000' }}>
+        {metric}
+      </Text>
+      <Text style={{ fontSize: '16px', color: '#666', lineHeight: '1.5' }}>
+        {description}
+      </Text>
     </Flex>
   );
 }
 
-function ProductsBox() {
+function ContactLink({ href, text }: { href: string; text: string }) {
   return (
-    <>
-      <LinkBox href='https://buy.stripe.com/aFadR8dw19qZ48kgxrgQE00' name='Sneaker Whitening' description="3 Day Turnaround - Pick Up and Dropoff" />
-    </>);
-}
-
-
-function ShowAboutButton({ showAbout, setShowAbout, mt }: { showAbout: boolean; setShowAbout: React.Dispatch<React.SetStateAction<boolean>>; mt: number }) {
-  return (
-    <Flex align='center' justify='center' h={"3rem"} w="5rem" mt={mt}>
-      <Button
-        onClick={() => setShowAbout((prev) => { return !prev })}
-        leftIcon={<SlChemistry />}
-        styles={(theme) => ({
-          root: {
-            backgroundColor: 'var(--twitter-blue)',
-            border: 0,
-            height: "42px",
-            paddingLeft: "20px",
-            paddingRight: "20px",
-            borderRadius: "15px",
-            '&:not([data-disabled])': theme.fn.hover({
-              backgroundColor: theme.fn.darken('#00acee', 0.05),
-            }),
-          },
-
-          leftIcon: {
-            marginRight: theme.spacing.md,
-          },
-        })}
+    <Link href={href} style={{ textDecoration: 'none' }}>
+      <Text 
+        style={{ 
+          fontSize: '16px', 
+          color: '#000',
+          cursor: 'pointer'
+        }}
+        onMouseEnter={(e) => {
+          e.currentTarget.style.color = '#666';
+        }}
+        onMouseLeave={(e) => {
+          e.currentTarget.style.color = '#000';
+        }}
       >
-        { showAbout ? `Get Started` : `Learn More...` }
-      </Button>
-    </Flex>
-  )
-}
-
-function LinkBox({name, description, href}: {name: string; description: string; href: string}) {
-  const [isHovered, setIsHovered] = useState(false);
-
-  const boxStyle = {
-    background: 'white',
-    borderRadius: '20px',
-    boxShadow: '0 8px 24px rgba(0, 0, 0, 0.12)',
-    transition: 'all 0.4s cubic-bezier(0.4, 0, 0.2, 1)',
-    position: 'relative' as const,
-    overflow: 'hidden',
-    border: '2px solid rgba(0, 172, 238, 0.1)',
-  };
-
-  const hoverStyle = {
-    ...boxStyle,
-    transform: isHovered ? 'translateY(-8px) scale(1.02)' : 'none',
-    boxShadow: isHovered 
-      ? '0 16px 40px rgba(0, 172, 238, 0.3)' 
-      : boxStyle.boxShadow,
-    background: isHovered
-      ? 'linear-gradient(135deg, #00acee 0%, #0095d4 50%, #007bb5 100%)'
-      : boxStyle.background,
-    border: isHovered ? '2px solid rgba(255, 255, 255, 0.3)' : boxStyle.border,
-  };
-
-  return (
-    <Link 
-      href={href} 
-      target="_blank"
-      onMouseEnter={() => setIsHovered(true)}
-      onMouseLeave={() => setIsHovered(false)}
-      style={{ textDecoration: 'none' }}
-    >
-      <Flex 
-        direction="column"
-        justify="space-between"
-        sx={{
-          ...hoverStyle, 
-          padding: "2rem",
-          cursor: 'pointer',
-        }} 
-        h="15rem" 
-        w="20rem"
-      >
-        {/* Icon at the top */}
-        <Flex align="center" gap={12}>
-          <Flex
-            align="center"
-            justify="center"
-            sx={{
-              width: '50px',
-              height: '50px',
-              borderRadius: '12px',
-              background: isHovered 
-                ? 'rgba(255, 255, 255, 0.25)' 
-                : 'linear-gradient(135deg, #00acee 0%, #007bb5 100%)',
-              backdropFilter: isHovered ? 'blur(10px)' : 'none',
-              transition: 'all 0.3s ease',
-              fontSize: '30px',
-              color: 'white',
-            }}
-          >
-            <Flex
-              align="center"
-              justify="center"
-              sx={{
-                width: '50px',
-                height: '50px',
-                borderRadius: '12px',
-                background: isHovered 
-                  ? 'rgba(255, 255, 255, 0.2)' 
-                  : 'linear-gradient(135deg, #00acee 0%, #007bb5 100%)',
-                transition: 'all 0.3s ease',
-                fontSize: '30px',
-                color: isHovered ? 'white' : 'white',
-              }}
-            >
-              <GiAtom />
-            </Flex>
-          </Flex>
-        </Flex>
-
-        {/* Text content at the bottom */}
-        <Flex direction="column" gap={8}>
-          <Text 
-            size="xl" 
-            weight={700} 
-            sx={{
-              color: isHovered ? "white" : "black",
-              transition: 'color 0.3s ease',
-              lineHeight: 1.2,
-            }}
-          >
-            {name}
-          </Text>
-          <Text 
-            size="md" 
-            sx={{
-              color: isHovered ? "rgba(255, 255, 255, 0.9)" : "#666",
-              transition: 'color 0.3s ease',
-            }}
-          >
-            {description}
-          </Text>
-        </Flex>
-
-        {/* Subtle shine effect on hover */}
-        <div
-          style={{
-            position: 'absolute',
-            top: 0,
-            left: '-100%',
-            width: '100%',
-            height: '100%',
-            background: 'linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent)',
-            transform: isHovered ? 'translateX(200%)' : 'translateX(0)',
-            transition: 'transform 0.6s ease',
-            pointerEvents: 'none',
-          }}
-        />
-      </Flex>
+        {text}
+      </Text>
     </Link>
   );
 }
 
-const SummaryWordByWord = ({
-  hasReadAbout,
-  seenSummary,
-  setSeenSummary,
-  isMobile
-}: {
-  seenSummary: boolean;
-  hasReadAbout: boolean;
-  setSeenSummary: React.Dispatch<React.SetStateAction<boolean>>;
-  isMobile: boolean;
-}) => {
-  const textContent = `We believe Vancouver should have clean Nikes. With our Shoe Cleaning Service, we'll have your sneakers looking spick-and-span sparkling white again.`;
-  const { visibleText } = useWordByWordText({
-    text: [textContent],
-    wordDelay: hasReadAbout ? 0 : 100, // No delay if already read
-    finalDelay: hasReadAbout ? 0 : 2000, // No final delay if already read
-    opened: (seenSummary && !hasReadAbout) ? true : false,
-    onComplete: () => { setSeenSummary(true) }
-  });
-
-   // If already read, show full text immediately
-  const displayText = hasReadAbout ? textContent : visibleText;
-
+function ServiceItem({ title, description }: { title: string; description: string }) {
   return (
-    <Flex direction="column" align="center" w="100%">
-      <Blockquote color="blue" cite="– Thibault">
-        Go Anywhere... but make sure you Nikes are Clean
-      </Blockquote>
-      <Flex direction="column" w={ isMobile ? "100%" : "50%" } miw={isMobile ? "100%" : "50%"} style={{overflow: "scroll", padding: isMobile ? "3px" : "15px"}}>
-        <Title ml={5}>
-          Backstory
-        </Title>
-        <Flex style={{...containerStyle, padding: isMobile ? "15px" : "30px", minHeight:"10rem", minWidth: isMobile ? "100%" : "30rem" }}>
-          <Text
-            style={{
-              opacity: 0,
-              animation: 'fadeSlideIn 0.8s ease-out forwards',
-              animationDelay: `${1}s`,
-              fontSize: isMobile ? "1.2rem" : "1.5rem",
-              whiteSpace: "normal"
-            }}
-          >
-            { displayText }
-          </Text>
-          <style>
-            {`
-              @keyframes fadeSlideIn {
-                0% {
-                  opacity: 0;
-                  transform: translateY(10px);
-                }
-                100% {
-                  opacity: 1;
-                  transform: translateY(0);
-                }
-              }
-            `}
-          </style>
-        </Flex>
-      </Flex>
+    <Flex direction="column" gap={12}>
+      <Text style={{ fontSize: '18px', fontWeight: 600, color: '#000' }}>
+        {title}
+      </Text>
+      <Text style={{ fontSize: '16px', color: '#666', lineHeight: '1.6', maxWidth: '600px' }}>
+        {description}
+      </Text>
     </Flex>
   );
-};
+}
 
+function HighlightItem({ 
+  title, 
+  period, 
+  description,
+  url 
+}: { 
+  title: string; 
+  period: string; 
+  description: string;
+  url?: string;
+}) {
+  return (
+    <Flex direction="column" gap={8}>
+      <Flex align="center" gap={12}>
+        {url ? (
+          <Link href={url} style={{ textDecoration: 'none' }}>
+            <Text 
+              style={{ 
+                fontSize: '18px', 
+                fontWeight: 600, 
+                color: '#000',
+                cursor: 'pointer'
+              }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.color = '#666';
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.color = '#000';
+              }}
+            >
+              {title}
+            </Text>
+          </Link>
+        ) : (
+          <Text style={{ fontSize: '18px', fontWeight: 600, color: '#000' }}>
+            {title}
+          </Text>
+        )}
+        <Text style={{ fontSize: '14px', color: '#999' }}>
+          {period}
+        </Text>
+      </Flex>
+      <Text style={{ fontSize: '16px', color: '#666', lineHeight: '1.6', maxWidth: '600px' }}>
+        {description}
+      </Text>
+    </Flex>
+  );
+}
 
-// About the Service: Pick Up and Drop Off are ALWAYS included. Turnaround time is 3-4 days. We treat your Shoes like our own.
+function ExperienceItem({ 
+  company, 
+  period, 
+  role, 
+  type,
+  tags 
+}: { 
+  company: string; 
+  period: string; 
+  role: string;
+  type: string;
+  tags: string[];
+}) {
+  return (
+    <Flex direction="column" gap={8}>
+      <Flex align="baseline" gap={12} wrap="wrap">
+        <Text style={{ fontSize: '16px', fontWeight: 600, color: '#000' }}>
+          {company}
+        </Text>
+        <Text style={{ fontSize: '14px', color: '#999' }}>
+          {period}
+        </Text>
+      </Flex>
+      <Text style={{ fontSize: '16px', color: '#666' }}>
+        {role}, {type}
+      </Text>
+      <Text style={{ fontSize: '14px', color: '#999' }}>
+        {tags.join(', ')}
+      </Text>
+    </Flex>
+  );
+}
+
+function EducationItem({ 
+  school, 
+  degree, 
+  period,
+  details 
+}: { 
+  school: string; 
+  degree: string; 
+  period: string;
+  details: string;
+}) {
+  return (
+    <Flex direction="column" gap={8}>
+      <Flex align="baseline" gap={12} wrap="wrap">
+        <Text style={{ fontSize: '16px', fontWeight: 600, color: '#000' }}>
+          {school}
+        </Text>
+        <Text style={{ fontSize: '14px', color: '#999' }}>
+          {period}
+        </Text>
+      </Flex>
+      <Text style={{ fontSize: '16px', color: '#666' }}>
+        {degree}
+      </Text>
+      <Text style={{ fontSize: '14px', color: '#999' }}>
+        {details}
+      </Text>
+    </Flex>
+  );
+}
+
+function AwardItem({ year, title }: { year: string; title: string }) {
+  return (
+    <Flex align="baseline" gap={12}>
+      <Text style={{ fontSize: '14px', color: '#999', minWidth: '60px' }}>
+        {year}
+      </Text>
+      <Text style={{ fontSize: '16px', color: '#666' }}>
+        {title}
+      </Text>
+    </Flex>
+  );
+}
+
+function SkillCategory({ category, skills }: { category: string; skills: string }) {
+  return (
+    <Flex direction="column" gap={8}>
+      <Text style={{ fontSize: '16px', fontWeight: 600, color: '#000' }}>
+        {category}
+      </Text>
+      <Text style={{ fontSize: '16px', color: '#666' }}>
+        {skills}
+      </Text>
+    </Flex>
+  );
+}
+

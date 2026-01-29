@@ -193,6 +193,12 @@ export default function Main() {
               url="https://zeroinbox.ai"
             />
             <HighlightItem
+              title="Surf Modular Dishwasher"
+              period="2024"
+              description="Patent Pending: designed, and built the worlds first modular dishwasher with a Propulsion Engineer at Relativity Space."
+              url="https://www.kickstarter.com/projects/sarman/surf-dishwasher-patent-pending"
+            />
+            <HighlightItem
               title="Siri Platform Evolution"
               period="2017—2021"
               description="Led transition to new Java Siri Platform at Apple, gaining 20% time savings for each developer. Added 100+ new app integrations including WhatsApp, Tesla, Spotify, Uber, and Facebook Messenger."

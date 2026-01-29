@@ -120,10 +120,12 @@ export default function Main() {
           
           <Flex direction="column" gap={12}>
             <ContactLink href="mailto:shayan.arman2@gmail.com" text="Email" />
-            <ContactLink href="https://linkedin.com/in/shayanarman" text="LinkedIn" />
+            <ContactLink href="https://linkedin.com/in/shayan-arman" text="LinkedIn" />
             <ContactLink href="https://github.com/ShayanArman" text="GitHub" />
             <ContactLink href="https://www.youtube.com/@quantumrysics" text="Youtube" />
             <ContactLink href="https://x.com/InboxZero" text="X" />
+            <ContactLink href="https://shayanarman.substack.com/" text="Substack" />
+            <ContactLink href="https://www.instagram.com/_shayanarman/" text="Instagram" />
           </Flex>
         </Flex>
 
@@ -157,6 +159,10 @@ export default function Main() {
             <ServiceItem
               title="Shipping Product, Getting Customers, Increasing Revenue"
               description="End-to-end product development from concept to scale. Specializing in Product Development, Sales, Marketing, Growing Revenue. Built systems processing thousands of requests per second."
+            />
+            <ServiceItem
+              title="Magic"
+              description="I can make things happen, you never thought could happen, faster than expected."
             />
           </Flex>
         </Flex>
@@ -412,7 +418,7 @@ export default function Main() {
               textTransform: 'uppercase'
             }}
           >
-            Colophon
+            Extraordinaire
           </Title>
           
           <Flex direction="column" gap={12}>

@@ -2,7 +2,7 @@ import Link from "next/link";
 export default function Home() {
   return (
     <div>
-      Shayan Arman
+      Shayan Arman Extraordinaire
     </div>
   );
 }

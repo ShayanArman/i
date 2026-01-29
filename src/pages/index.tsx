@@ -1,10 +1,7 @@
 import { Flex, Title, Text, Button, Container } from '@mantine/core';
-import { useState } from 'react';
 import Link from "next/link";
 
 export default function Main() {
-  const [activeSection, setActiveSection] = useState<string | null>(null);
-
   return (
     <Container size="md" px="md">
       <Flex direction="column" gap={80} py={60}>
@@ -199,11 +196,6 @@ export default function Main() {
               url="https://www.kickstarter.com/projects/sarman/surf-dishwasher-patent-pending"
             />
             <HighlightItem
-              title="Siri Platform Evolution"
-              period="2017—2021"
-              description="Led transition to new Java Siri Platform at Apple, gaining 20% time savings for each developer. Added 100+ new app integrations including WhatsApp, Tesla, Spotify, Uber, and Facebook Messenger."
-            />
-            <HighlightItem
               title="Privacy-Centric Siri"
               period="2019—2021"
               description="Engineered native Swift Siri with single monorepo development. Removed Java server dependency, saving developers hours weekly. Achieved 80% faster on-device response times for customers."
@@ -212,6 +204,11 @@ export default function Main() {
               title="Siri AirPods Experience"
               period="2019—2020"
               description="Built the first Siri AirPods experience, unlocking $18B in new revenue for Apple (Bloomberg, 2021). Increased Siri usage by millions across HomePod, AirPods, and CarPlay."
+            />
+            <HighlightItem
+              title="Siri Platform Evolution"
+              period="2017—2021"
+              description="Led transition to new Java Siri Platform at Apple, gaining 20% time savings for each developer. Added 100+ new app integrations including WhatsApp, Tesla, Spotify, Uber, and Facebook Messenger."
             />
           </Flex>
         </Flex>

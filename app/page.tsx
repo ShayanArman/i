@@ -23,7 +23,7 @@ export default function Home() {
                 href="mailto:shayan.arman2@gmail.com?subject=Project%20Inquiry&body=Hi%20Shayan%2C%0A%0AI%27d%20love%20to%20discuss%20a%20potential%20project.%0A%0APROJECT%20DETAILS%0A%0ACompany%2FProduct%20Name%3A%0A%0AWhat%20are%20you%20building%3F%0A%0ATimeline%20%26%20Budget%3A%0A%0ACurrent%20Stage%3A%0A%0AWhat%20do%20you%20need%20help%20with%3F" 
                 className="w-fit"
               >
-                <button className="bg-black border-0 h-11 px-6 rounded-lg text-base font-medium text-white hover:bg-gray-800 transition-colors">
+                <button className="cursor-pointer bg-black border-0 h-11 px-6 rounded-lg text-base font-medium text-white hover:bg-gray-800 transition-colors">
                   Lets Talk
                 </button>
               </Link>

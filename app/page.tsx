@@ -69,8 +69,8 @@ export default function Home() {
 
             {/* Contact Section */}
             <div className="flex flex-col gap-6">
-              <Link href={'/links'} className="text-base text-black hover:text-gray-600 transition-colors w-fit">
-                <h2 className="text-sm font-bold tracking-wider text-green-600 uppercase flex items-center gap-2">
+              <Link href={'/links'} className="transition-colors hover:underline w-fit" style={{ color: 'lab(57.6104% 56.6725 33.4484)' }}>
+                <h2 className="text-sm font-bold tracking-wider uppercase flex items-center gap-2">
                   <span className="relative flex h-2 w-2">
                     <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-500 opacity-75"></span>
                     <span className="relative inline-flex rounded-full h-2 w-2 bg-green-600"></span>

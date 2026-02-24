@@ -120,7 +120,6 @@ export default function LinksPage() {
                 src="/me.jpg"
                 alt="Portrait of Shayan Arman"
                 fill
-                sizes="100px"
                 className={styles.avatarImage}
                 priority
               />

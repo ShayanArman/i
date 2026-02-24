@@ -9,6 +9,14 @@
   background: linear-gradient(180deg, #fff 0 54%, #0099ffba 54% 100%);
 }
 
+@media (min-width: 32.01rem) {
+  .page {
+    height: 100svh;
+    min-height: unset;
+    overflow: hidden;
+  }
+}
+
 .backdropOrbTop,
 .backdropOrbBottom {
   position: absolute;
@@ -219,11 +227,11 @@
 @keyframes frame-in {
   from {
     opacity: 0;
-    transform: translateY(24px) scale(0.98);
+    transform: translateY(24px) scale(0.88);
   }
   to {
     opacity: 1;
-    transform: translateY(0) scale(1);
+    transform: translateY(0) scale(0.9);
   }
 }
 
@@ -242,6 +250,8 @@
   .phoneFrame {
     border-width: 8px;
     border-radius: 2.2rem;
+    transform: scale(1);
+    animation: frame-in-mobile 420ms ease-out both;
   }
 
   .card {
@@ -309,5 +319,16 @@
   .homeButton,
   .linkButton {
     transition: none;
+  }
+}
+
+@keyframes frame-in-mobile {
+  from {
+    opacity: 0;
+    transform: translateY(24px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
   }
 }

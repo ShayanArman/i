@@ -86,7 +86,7 @@ export default function CurrentlySection() {
       <h2 className="text-sm font-semibold tracking-wider text-gray-600 uppercase">
         Currently
       </h2>
-      <p className="text-base text-gray-600">Building <LinkPreview href="https://zeroinbox.ai" className="transition-colors" style={{ color: 'lab(57.6104% 56.6725 33.4484)' }}>Zero Inbox</LinkPreview>.</p>
+      <p className="text-base text-gray-600">Building <LinkPreview href="https://zeroinbox.ai" className="transition-colors hover:underline" style={{ color: 'lab(57.6104% 56.6725 33.4484)' }}>Zero Inbox</LinkPreview>.</p>
       <p className="text-base text-gray-600 flex items-center gap-2">
         <span className="relative flex h-2 w-2">
           <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-40"></span>

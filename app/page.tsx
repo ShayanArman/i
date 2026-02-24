@@ -62,9 +62,11 @@ export default function Home() {
 
             {/* Contact Section */}
             <div className="flex flex-col gap-6">
-              <h2 className="text-sm font-semibold tracking-wider text-gray-600 uppercase">
-                Contact
-              </h2>
+              <Link href={'/links'} className="text-base text-black hover:text-gray-600 transition-colors w-fit">
+                <h2 className="text-sm font-semibold tracking-wider text-gray-600 uppercase">
+                  Contact
+                </h2>
+              </Link>
               
               <div className="flex flex-col gap-3">
                 <ContactLink href="mailto:shayan.arman2@gmail.com" text="Email" />

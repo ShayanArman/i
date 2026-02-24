@@ -6,7 +6,7 @@
   justify-content: center;
   overflow: hidden;
   padding: 2rem 1rem;
-  background: linear-gradient(180deg, #fff 0 54%, #000 54% 100%);
+  background: linear-gradient(180deg, #fff 0 54%, #0099ffba 54% 100%);
 }
 
 .backdropOrbTop,
@@ -38,6 +38,8 @@
   z-index: 1;
   width: min(100%, 27rem);
   border: 10px solid #000;
+  transform: scale(0.9);
+  transform-origin: center;
   border-radius: 2.75rem;
   background: #000;
   box-shadow: 0 24px 60px rgb(0 0 0 / 44%);
@@ -50,7 +52,7 @@
   border: 3px solid #000;
   border-radius: 2rem;
   padding: 1.75rem 1.1rem 1.25rem;
-  background: linear-gradient(180deg, #fff 0 33%, #000 33% 100%);
+  background: linear-gradient(180deg, #fff 0 45%, #000 33% 100%);
 }
 
 .homeButton {

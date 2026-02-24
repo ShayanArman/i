@@ -79,10 +79,6 @@ export default function Home() {
             <div className="flex flex-col gap-6">
               <LinkPreview href="/links" previewUrl="https://shayanarman.com/links" className="transition-colors hover:underline w-fit" style={{ color: 'var(--lab-color)' }}>
                 <h2 className="text-sm font-bold tracking-wider uppercase flex items-center gap-2">
-                  <span className="relative flex h-2 w-2">
-                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-500 opacity-75"></span>
-                    <span className="relative inline-flex rounded-full h-2 w-2 bg-green-600"></span>
-                  </span>
                   Contact
                 </h2>
               </LinkPreview>

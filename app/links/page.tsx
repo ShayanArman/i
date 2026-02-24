@@ -25,6 +25,7 @@ type LinkItem = {
   href: string;
   label: string;
   tag: string;
+  mobileTag?: string;
   icon?: IconType;
 };
 
@@ -46,6 +47,7 @@ const links = {
     href: "https://shayanarman.substack.com/",
     label: "Substack",
     tag: "SUB",
+    mobileTag: "SUBSTACK",
   },
   youtube: {
     href: "https://www.youtube.com/@quantumrysics",
@@ -72,6 +74,12 @@ const links = {
     icon: FaEnvelope,
   },
   website: { href: "/", label: "Main Website", tag: "WEB", icon: FaGlobe },
+  samAltmanPrize: {
+    href: "https://www.samaltmanprize.com",
+    label: "Sam Altman Prize",
+    tag: "SAP",
+    icon: FaGlobe,
+  },
   surfDishwasher: {
     href: "https://www.kickstarter.com/projects/sarman/surf-dishwasher-patent-pending",
     label: "Surf Dishwasher",
@@ -86,6 +94,7 @@ const linkRows: LinkItem[][] = [
   [links.linkedin, links.substack],
   [links.instagram, links.youtube],
   [links.email, links.website],
+  [links.samAltmanPrize],
   [links.surfDishwasher],
 ];
 
@@ -148,13 +157,10 @@ export default function LinksPage() {
                       rel={external ? "noreferrer noopener" : undefined}
                       style={{ animationDelay: `${120 + order * 40}ms` }}
                     >
-                      <span className={styles.linkTag}>
+                      <span className={styles.linkTag} data-mobile-tag={item.mobileTag}>
                         {Icon ? <Icon aria-hidden="true" /> : item.tag}
                       </span>
                       <span className={styles.linkLabel}>{item.label}</span>
-                      <span className={styles.linkArrow} aria-hidden="true">
-                        -&gt;
-                      </span>
                     </a>
                   );
                 })}

@@ -4,6 +4,7 @@
   --background: #ffffff;
   --foreground: #171717;
   --lab-color: lab(57.6104% 56.6725 33.4484);
+  --green-accent: #1db954;
 }
 
 @theme inline {

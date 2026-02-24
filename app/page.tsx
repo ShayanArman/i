@@ -1,6 +1,7 @@
 import Link from "next/link";
 import CurrentlySection from "./components/CurrentlySection";
 import LinkPreview from "./components/LinkPreview";
+import { HiArrowRight } from "react-icons/hi";
 
 export default function Home() {
   return (
@@ -18,14 +19,20 @@ export default function Home() {
             {/* Hero Section */}
             <div className="flex flex-col gap-6">
               <p className="text-xl leading-relaxed text-gray-800 max-w-[600px]">
-                I love to build, ship, and scale. Since 2017, Ive engineered products at Apple and built an AI startup serving thousands worldwide. Currently building Zero Inbox, the first fully AI-powered email organizer.
+                I love to build, ship, and scale. Since 2017, I&apos;ve engineered products at{' '}
+                <LinkPreview href="https://apple.com" className="hover:underline transition-colors" style={{ color: 'var(--lab-color)' }}>Apple</LinkPreview>
+                {' '}and built an AI startup serving thousands worldwide. Currently building{' '}
+                <LinkPreview href="https://zeroinbox.ai" className="hover:underline transition-colors" style={{ color: 'var(--lab-color)' }}>Zero Inbox</LinkPreview>
+                , the first fully AI-powered email organizer.
               </p>
               <Link 
-                href="mailto:shayan.arman2@gmail.com?subject=Project%20Inquiry&body=Hi%20Shayan%2C%0A%0AI%27d%20love%20to%20discuss%20a%20potential%20project.%0A%0APROJECT%20DETAILS%0A%0ACompany%2FProduct%20Name%3A%0A%0AWhat%20are%20you%20building%3F%0A%0ATimeline%20%26%20Budget%3A%0A%0ACurrent%20Stage%3A%0A%0AWhat%20do%20you%20need%20help%20with%3F" 
+                href="/links"
                 className="w-fit"
               >
-                <button className="cursor-pointer bg-black border-0 h-11 px-6 rounded-lg text-base font-medium text-white hover:bg-gray-800 transition-colors">
-                  Lets Talk
+                <button className="cursor-pointer bg-black border-0 h-11 px-6 rounded-lg text-base font-medium text-white hover:bg-gray-800 transition-colors flex items-center gap-2 group">
+                  <span className="w-2 h-2 rounded-full bg-white transition-colors group-hover:bg-[#1db954]" />
+                  Let&apos;s Talk
+                  <HiArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-0.5" />
                 </button>
               </Link>
             </div>

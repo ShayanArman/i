@@ -1,4 +1,5 @@
 import Link from "next/link";
+import CurrentlySection from "./components/CurrentlySection";
 
 export default function Home() {
   return (
@@ -56,6 +57,12 @@ export default function Home() {
                 />
               </div>
             </div>
+
+            {/* Divider */}
+            <div className="h-px bg-gray-200 w-full" />
+
+            {/* Currently Section */}
+            <CurrentlySection />
 
             {/* Divider */}
             <div className="h-px bg-gray-200 w-full" />

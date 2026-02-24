@@ -82,9 +82,9 @@ const links = {
 
 const linkRows: LinkItem[][] = [
   [links.zeroInbox],
-  [links.instagram, links.github],
-  [links.linkedin, links.youtube],
-  [links.x, links.substack],
+  [links.x, links.github],
+  [links.linkedin, links.substack],
+  [links.instagram, links.youtube],
   [links.email, links.website],
   [links.surfDishwasher],
 ];

@@ -6,8 +6,8 @@ import { HiArrowRight } from "react-icons/hi";
 export default function Home() {
   return (
     <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <div className="w-full max-w-screen-md px-4 md:px-0">
+      <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between bg-white px-5 py-24 dark:bg-black sm:items-start sm:px-10 sm:py-32 lg:px-16">
+        <div className="w-full max-w-screen-md">
           <div className="flex flex-col gap-20 py-15">
             {/* Header */}
             <div className="flex flex-col gap-4">
@@ -25,23 +25,21 @@ export default function Home() {
                 <LinkPreview href="https://zeroinbox.ai" className="hover:underline transition-colors" style={{ color: 'var(--lab-color)' }}>Zero Inbox</LinkPreview>
                 , the first fully AI-powered email organizer.
               </p>
-              <div className="flex flex-wrap items-center gap-3">
+              <div className="flex w-full flex-col gap-3 sm:flex-row sm:flex-wrap sm:items-center">
                 <Link 
                   href="/links"
-                  className="w-fit"
+                  className="group flex h-11 w-full items-center justify-center gap-2 rounded-lg bg-black px-6 text-base font-medium text-white transition-colors hover:bg-gray-800 sm:w-fit"
                 >
-                  <button className="cursor-pointer bg-black border-0 h-11 px-6 rounded-lg text-base font-medium text-white hover:bg-gray-800 transition-colors flex items-center gap-2 group">
-                    <span className="w-2 h-2 rounded-full bg-white transition-colors group-hover:bg-[#1db954]" />
-                    Let&apos;s Talk
-                    <HiArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-0.5" />
-                  </button>
+                  <span className="h-2 w-2 rounded-full bg-white transition-colors group-hover:bg-[#1db954]" />
+                  Let&apos;s Talk
+                  <HiArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
                 </Link>
 
                 <Link
                   href="https://zeroinbox.ai"
                   target="_blank"
                   rel="noreferrer"
-                  className="inline-flex h-11 items-center gap-2 rounded-lg border border-gray-200 bg-white px-5 text-base font-medium text-black transition-colors hover:border-gray-300 hover:bg-gray-50"
+                  className="inline-flex min-h-11 w-full items-center justify-center gap-2 rounded-lg border border-gray-200 bg-white px-5 py-2 text-center text-base font-medium text-black transition-colors hover:border-gray-300 hover:bg-gray-50 sm:w-auto sm:text-left"
                 >
                   <span className="h-2 w-2 rounded-full bg-[#1db954]" />
                   Clean up Emails with ZeroInbox.ai
@@ -93,7 +91,7 @@ export default function Home() {
                 Newsletter
               </h2>
 
-              <div className="flex flex-col gap-6 rounded-2xl border border-gray-200 bg-zinc-50 p-6">
+              <div className="flex flex-col gap-6 rounded-2xl border border-gray-200 bg-zinc-50 p-5 sm:p-6">
                 <div className="flex flex-col gap-3">
                   <p className="text-2xl font-semibold text-black">
                     Subscribe to my Newsletter
@@ -103,7 +101,7 @@ export default function Home() {
                   </p>
                 </div>
 
-                <div className="w-full max-w-[480px] overflow-hidden rounded-xl border border-gray-200 bg-white">
+                <div className="w-full max-w-none overflow-hidden rounded-xl border border-gray-200 bg-white sm:max-w-[480px]">
                   <iframe
                     title="Subscribe to Shayan Arman's newsletter"
                     src="https://shayanarman.substack.com/embed"

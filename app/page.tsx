@@ -91,19 +91,6 @@ export default function Home() {
                   </p>
                 </div>
 
-                <Link
-                  href="https://shayanarman.substack.com/"
-                  target="_blank"
-                  rel="noreferrer"
-                  className="w-fit"
-                >
-                  <span className="inline-flex h-11 items-center gap-2 rounded-lg bg-black px-6 text-base font-medium text-white transition-colors hover:bg-gray-800">
-                    <span className="h-2 w-2 rounded-full bg-white" />
-                    Subscribe to my Newsletter
-                    <HiArrowRight className="h-4 w-4" />
-                  </span>
-                </Link>
-
                 <div className="w-full max-w-[480px] overflow-hidden rounded-xl border border-gray-200 bg-white">
                   <iframe
                     title="Subscribe to Shayan Arman's newsletter"

@@ -75,6 +75,52 @@ export default function Home() {
             {/* Divider */}
             <div className="h-px bg-gray-200 w-full" />
 
+            {/* Newsletter Section */}
+            <div className="flex flex-col gap-8">
+              <h2 className="text-sm font-semibold tracking-wider text-gray-600 uppercase">
+                Newsletter
+              </h2>
+
+              <div className="flex flex-col gap-6 rounded-2xl border border-gray-200 bg-zinc-50 p-6">
+                <div className="flex flex-col gap-3">
+                  <p className="text-2xl font-semibold text-black">
+                    Subscribe to my Newsletter
+                  </p>
+                  <p className="max-w-[560px] text-base leading-relaxed text-gray-600">
+                    Occasional notes on building products, AI, and the lessons that come from shipping fast and learning in public.
+                  </p>
+                </div>
+
+                <Link
+                  href="https://shayanarman.substack.com/"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="w-fit"
+                >
+                  <span className="inline-flex h-11 items-center gap-2 rounded-lg bg-black px-6 text-base font-medium text-white transition-colors hover:bg-gray-800">
+                    <span className="h-2 w-2 rounded-full bg-white" />
+                    Subscribe to my Newsletter
+                    <HiArrowRight className="h-4 w-4" />
+                  </span>
+                </Link>
+
+                <div className="w-full max-w-[480px] overflow-hidden rounded-xl border border-gray-200 bg-white">
+                  <iframe
+                    title="Subscribe to Shayan Arman's newsletter"
+                    src="https://shayanarman.substack.com/embed"
+                    width="100%"
+                    height="320"
+                    style={{ border: 0, background: "white" }}
+                    frameBorder="0"
+                    scrolling="no"
+                  />
+                </div>
+              </div>
+            </div>
+
+            {/* Divider */}
+            <div className="h-px bg-gray-200 w-full" />
+
             {/* Contact Section */}
             <div className="flex flex-col gap-6">
               <LinkPreview href="/links" previewUrl="https://shayanarman.com/links" className="transition-colors hover:underline w-fit" style={{ color: 'var(--lab-color)' }}>

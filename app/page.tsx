@@ -25,16 +25,28 @@ export default function Home() {
                 <LinkPreview href="https://zeroinbox.ai" className="hover:underline transition-colors" style={{ color: 'var(--lab-color)' }}>Zero Inbox</LinkPreview>
                 , the first fully AI-powered email organizer.
               </p>
-              <Link 
-                href="/links"
-                className="w-fit"
-              >
-                <button className="cursor-pointer bg-black border-0 h-11 px-6 rounded-lg text-base font-medium text-white hover:bg-gray-800 transition-colors flex items-center gap-2 group">
-                  <span className="w-2 h-2 rounded-full bg-white transition-colors group-hover:bg-[#1db954]" />
-                  Let&apos;s Talk
-                  <HiArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-0.5" />
-                </button>
-              </Link>
+              <div className="flex flex-wrap items-center gap-3">
+                <Link 
+                  href="/links"
+                  className="w-fit"
+                >
+                  <button className="cursor-pointer bg-black border-0 h-11 px-6 rounded-lg text-base font-medium text-white hover:bg-gray-800 transition-colors flex items-center gap-2 group">
+                    <span className="w-2 h-2 rounded-full bg-white transition-colors group-hover:bg-[#1db954]" />
+                    Let&apos;s Talk
+                    <HiArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-0.5" />
+                  </button>
+                </Link>
+
+                <Link
+                  href="https://zeroinbox.ai"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="inline-flex h-11 items-center gap-2 rounded-lg border border-gray-200 bg-white px-5 text-base font-medium text-black transition-colors hover:border-gray-300 hover:bg-gray-50"
+                >
+                  <span className="h-2 w-2 rounded-full bg-[#1db954]" />
+                  Clean up Emails with ZeroInbox.ai
+                </Link>
+              </div>
             </div>
 
             {/* Divider */}

@@ -100,7 +100,7 @@ export default function Home() {
                     Occasional notes on building products, AI, and the lessons that come from shipping fast and learning in public.
                   </p>
                 </div>
-                <div className="-mx-5 sm:mx-0 w-[calc(100%+2.5rem)] sm:w-full sm:max-w-[480px] overflow-hidden rounded-none sm:rounded-xl border-y sm:border border-gray-200 bg-white">
+                <div className="-mx-5 w-[calc(100%+2.5rem)] overflow-hidden rounded-none border-y border-gray-200 bg-white pt-2 sm:mx-auto sm:w-full sm:max-w-[480px] sm:rounded-xl sm:border">
                   <iframe
                     title="Subscribe to Shayan Arman's newsletter"
                     src="https://shayanarman.substack.com/embed"

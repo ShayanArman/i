@@ -14,6 +14,16 @@ export default function Home() {
               <h1 className="text-5xl font-bold tracking-tight text-black">
                 Shayan Arman
               </h1>
+              <Link
+                href="/archive"
+                className="group mt-3 flex w-full items-center justify-between gap-5 border-y border-[#c52d1c]/30 bg-[#f7f1e7] px-4 py-3 text-[#211913] transition-colors hover:bg-[#efe2d4] sm:w-fit sm:min-w-[430px]"
+              >
+                <span className="flex items-center gap-3 text-sm font-medium">
+                  <span className="h-2 w-2 rounded-full bg-[#c52d1c]" />
+                  New: I&apos;ll move your Substack archive to a site you own
+                </span>
+                <HiArrowRight className="h-4 w-4 shrink-0 transition-transform group-hover:translate-x-1" />
+              </Link>
             </div>
 
             {/* Hero Section */}
